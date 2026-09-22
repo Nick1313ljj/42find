@@ -1,0 +1,11 @@
+[package]
+name = "find42"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "42find"
+path = "src/main.rs"
+
+[dependencies]
+find42-core = { path = "../42find-core" }

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "42f",
+  "version": "0.1.0",
+  "description": "42find",
+  "license": "MIT",
+  "keywords": ["aias"]
+}

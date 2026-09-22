@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "42find-core",
+    "42find-cli",
+]
+resolver = "2"
