@@ -56,6 +56,14 @@ check gitleaks "提交前扫密钥——给新手保命的那一把" 'brew insta
 check gh       "GitHub 命令行入口" 'brew install gh' '见 cli.github.com' 'scoop install gh'
 
 echo
+echo "▸ 本系统专属（42find · Rust）"
+check rustc   "Rust 编译器" 'rustup install stable' 'rustup install stable' 'rustup install stable'
+check cargo   "Cargo 包管理器" '随 rustup 一起装' '随 rustup 一起装' '随 rustup 一起装'
+check rustfmt "Rust 格式化" 'rustup component add rustfmt' 'rustup component add rustfmt' 'rustup component add rustfmt'
+have clippy-driver && printf '  ✓ %-10s %s\n' clippy "Rust lint" \
+  || { check cargo-clippy "Rust lint（cargo clippy）" 'rustup component add clippy' 'rustup component add clippy' 'rustup component add clippy'; }
+
+echo
 echo "▸ 第二谱系（对抗性评审要用——现在装好，下一步分析时才用得上）"
 echo "  换的不是模型，是**整套装置**：框架与模型要配套，别在这家的框架里塞那家的模型。"
 have codex     && printf '  ✓ %-10s %s\n' codex     '配 GPT 系' || printf '  ✗ %-10s %-28s → %s\n' codex     '配 GPT 系' '见 OpenAI Codex 文档'

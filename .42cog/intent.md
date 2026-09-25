@@ -1,44 +1,44 @@
-# 42find · Intent
+# 42find · 意向书
 
-> Intent is action. This file decides what this system becomes.
-> **Only one thing requires your eyes: the convergence direction. Everything else is a draft.**
-> **It will be rough right now. You'll refine it after `-research` — the four steps are a loop, not a line.**
+> 意向即行动。这份文件决定这个系统最终成为什么。
+> **只有一件事需要你亲眼过目：收敛方向。其余都是草稿。**
+> **现在写得粗是正常的。跑完 `-research` 再来精化——四步是循环，不是直线。**
 
-## Convergence Direction (the one thing)
+## 收敛方向（唯一要紧的那一句）
 
-Return the right file or note in one query — **precision over recall**.
+一次查询，找到正确的文件或笔记——**精准优先于召回率**。
 
-How to measure: For any query, does the target result appear in the top 3? If not, that's a miss. Speed benchmark: results in under 2 seconds on a corpus of 10,000 files.
+怎么量：任意一次查询，目标结果是否出现在前三名？没出现就是未命中。速度基准：在一万个文件的语料库上，2 秒以内返回结果。
 
-## True Hard Problems
+## 真正的难题
 
-1. **The tip-of-tongue problem** — you remember a fragment (a phrase, a rough date, a related topic) but not the filename or folder. Full-text fuzzy search across thousands of files, returning results fast, is the only solution. No single tool nails this for mixed personal file collections.
+1. **"话到嘴边想不起来"问题** —— 你记得一个片段（一句话、一个大概日期、一个相关主题），但想不起文件名或目录。跨几千个文件做全文模糊检索、快速返回结果，是唯一的解法。目前没有哪个工具能把这件事在混合个人文件集合上做好。
 
-2. **Cross-format unification** — notes live in `.md`, `.txt`, PDFs, maybe Word docs. Getting one query to search all formats without forcing the user to pick a tool per format is unsolved for personal use.
+2. **跨格式统一检索** —— 笔记散落在 `.md`、`.txt`、PDF、甚至 Word 文档里。一条查询覆盖所有格式、不强迫用户按格式分别挑工具——这个问题在个人用途上还没有现成答案。
 
-## What Not To Do
+## 不做什么
 
-| Don't do | Why |
+| 不做 | 为什么 |
 |---|---|
-| Web / internet search | 42find is personal-file-only; adding web turns it into a different product |
-| AI summarization or synthesis | Find, don't generate — synthesis is a separate concern |
-| File organization or moving files | Search within the existing structure; never touch what it finds |
-| GUI-first | CLI first, GUI is optional later — keep the core scriptable |
+| 联网 / 网页检索 | 42find 只检索本地文件；加入联网就变成另一个产品了 |
+| AI 摘要或内容合成 | 找到，不生成——合成是另一件事 |
+| 整理文件或移动文件 | 在现有结构里搜索；绝不触碰它找到的东西 |
+| GUI 优先 | CLI 先行，GUI 是可选的后续——保持核心可脚本化 |
 
-## Sources of Truth
+## 真相源权重
 
-When conflicting, trust in this order (fill in after `-research`):
+有冲突时，按此顺序信任（跑完 `-research` 后补充）：
 
-1. The actual file system state — what exists on disk is ground truth
-2. User-maintained index / metadata (tags, front matter)
-3. Inferred metadata (modification date, directory name)
+1. 文件系统的实际状态——磁盘上存在什么，就是事实
+2. 用户自维护的索引 / 元数据（标签、front matter）
+3. 推断出的元数据（修改时间、目录名）
 
-## Work Area
+## 作品区
 
-- Directory: `src/`
-- What it produces: a CLI tool (`42find <query>`) that returns ranked file paths with a snippet
-- **What counts as done (validation loop)**: given a partial keyword, the target file appears in top 3 results, returned in under 2 seconds, on a 10,000-file test corpus
+- 目录：`src/`
+- 产出：一个 CLI 工具（`42find <查询词>`），返回排序后的文件路径与摘要片段
+- **怎么算合格（验证闭环）**：给定一个片段关键词，目标文件出现在前三名结果中，在一万个文件的测试语料库上，2 秒以内返回
 
 ---
 
-*Drafted by `aias-meta-init` on 2026-09-16. Edit this file directly — no commands needed.*
+*由 `aias-meta-init` 起草于 2026-09-16。直接编辑此文件即可，无需任何命令。*
